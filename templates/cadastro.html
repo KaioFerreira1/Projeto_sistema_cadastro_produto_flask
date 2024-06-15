@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro</h1>
+        <form action="/cadastrarusuario" method="POST" enctype="multipart/form-data">
+            <label for="nome">Nome:</label><br>
+            <input type="text" id="nome" name="nome" placeholder="Nome" required><br>
+            <label for="senha">Senha:</label><br>
+            <input type="password" id="senha" name="senha" placeholder="Senha" required><br><br>
+            <label for="cargo">Cargo:</label><br>
+            <select id="cargo" name="cargo" required>
+                <option value="Cliente">Cliente</option>
+                <option value="ADM">ADM</option>
+            </select><br><br>
+            <label for="foto">Foto de Perfil:</label><br>
+            <input type="file" id="foto" name="file"><br><br>
+            {{ error }}
+            <input type="submit" value="Cadastrar">
+        </form>
+        <p>Já tem uma conta? <a href="/login">Faça login</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Cliente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<a href="/logout">Logout</a><br><br>
+    <div class="container">
+        <h1>Buscar Cliente</h1>
+        <form method="GET" action="/buscar_cliente">
+            <input type="text" name="search" placeholder="Digite o nome do cliente" required>
+            <button type="submit">Buscar</button>
+        </form>
+        <br>
+        {% if clientes %}
+            <h2>Resultados da Busca</h2>
+            <ul>
+                {% for cliente in clientes %}
+                    <li>
+                        {{ cliente[1] }} ({{ cliente[2] }})
+                        - <a href="/remover_cliente/{{ cliente[0] }}" onclick="return confirm('Tem certeza que deseja remover este cliente?');">Remover</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% elif request.args.get('search') %}
+            <p>Nenhum cliente encontrado para o termo "{{ request.args.get('search') }}".</p>
+        {% endif %}
+        <br>
+        <a href="/menu">Voltar ao Menu</a>
+    </div>
+</body>
+</html>

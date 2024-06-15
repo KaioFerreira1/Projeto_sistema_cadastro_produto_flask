@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem de Produtos</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Listagem de Produtos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Marca</th>
+                <th>Data de Validade</th>
+                <th>Preço</th>
+                <th>Quantidade Disponível</th>
+                <th>Imagem</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+            <tr>
+                <td>{{ produto[0] }}</td>
+                <td>{{ produto[1] }}</td>
+                <td>{{ produto[2] }}</td>
+                <td>{{ produto[3] }}</td>
+                <td>{{ produto[4] }}</td>
+                <td>{{ produto[5] }}</td>
+                <td><img src="{{ produto[6] }}" alt="Imagem do Produto" width="100" height="100"></td>
+                <td>
+                    <!-- Link para página de pedido -->
+                    <a href="/fazer_pedido">Pedido</a>
+                    <a href="/graf_regressao_linear/{{ produto[0] }}">compras do produto mês a mês</a>
+                    <!-- Botão para excluir produto -->
+                    <form action="/excluir_produto/{{ produto[0] }}" method="post" style="display: inline;">
+                        <input type="submit" value="Excluir">
+                    </form>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

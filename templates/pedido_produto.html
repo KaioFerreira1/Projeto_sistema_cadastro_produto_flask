@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fazer Pedido</title>
+    <style>
+        .product-form {
+            max-width: 500px;
+            margin: 0 auto 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 60px;
+            margin-right: 10px;
+        }
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fazer Pedido</h1>
+    <ul>
+        {% for produto in produtos %}
+        <li>
+            <form action="/fazer_pedido" method="POST" class="product-form">
+                <img src="{{ produto[6] }}" alt="{{ produto[1] }}" style="width: 100px; height: auto;">
+                <label for="quantidade_produto_{{ produto[0] }}">{{ produto[1] }} - Marca: {{ produto[2] }} - Data de Validade: {{ produto[3] }} - Preço: {{ produto[4] }} - Quantidade disponível: {{ produto[5] }}</label>
+                <input type="number" name="produto_id_{{ produto[0] }}" id="quantidade_produto_{{ produto[0] }}" min="0" max="{{ produto[5] }}" required>
+                <button type="submit">Fazer Pedido</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

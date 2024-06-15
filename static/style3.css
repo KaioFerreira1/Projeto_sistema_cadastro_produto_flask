@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+body{
+    font-family: 'Noto Sans';
+}
+*body{
+    box-sizing: border-box;
+}
+/* Estilizando o input */
+input[type="submit"] {
+    padding: 10px 20px; /* Adiciona espaçamento interno ao botão */
+    border: none; /* Remove a borda padrão */
+    border-radius: 20px; /* Define a borda arredondada */
+    background-color: #4CAF50; /* Define a cor de fundo */
+    color: white; /* Define a cor do texto */
+    cursor: pointer; /* Altera o cursor para indicar que é clicável */
+    font-size: 16px; /* Define o tamanho da fonte */
+    transition: background-color 0.3s; /* Adiciona uma transição suave na mudança de cor de fundo */
+}
+
+/* Estilizando o input */
+input[type="number"] {
+    padding: 10px; /* Adiciona espaçamento interno ao input */
+    border: 1px solid #ccc; /* Adiciona uma borda sólida */
+    border-radius: 20px; /* Define a borda arredondada */
+    font-size: 16px; /* Define o tamanho da fonte */
+}
+
+/* Adicionando estilo ao hover do botão */
+input[type="submit"]:hover {
+    background-color: #45a049; /* Altera a cor de fundo ao passar o mouse */
+}

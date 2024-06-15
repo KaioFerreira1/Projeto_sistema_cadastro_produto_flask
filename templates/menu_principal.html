@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Sistema</title>
+</head>
+<body>
+    <div>
+        <p>Perfil do Usuário</p>
+        <img src="{{ foto }}" alt="Foto do Usuário" width="100" height="100">
+        <p>Cargo: {{ cargo }}</p>
+        <p>Bem-vindo(a), {{ nome }}</p>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+    <h1>Menu Principal</h1>
+    <ul>
+        <li><a href="/listagem_produtos">Listar Produtos</a></li>
+        <li><a href="/adicionar_produto">Adicionar Produto</a></li>
+        <li><a href="/buscar_cliente">Buscar Clientes</a></li>
+    </ul>
+</body>
+</html>
